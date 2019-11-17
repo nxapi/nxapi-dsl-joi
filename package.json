@@ -1,6 +1,6 @@
 {
   "name": "@nxapi/nxapi-dsl-joi",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "@nxapi/nxapi-dsl-joi",
   "scripts": {
     "build": "npm run build-ts && npm run tslint",
@@ -20,11 +20,11 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@nxapi/nxapi": "^0.0.9",
     "@types/node": "^9.4.6",
     "pre-commit": "^1.2.2",
     "tslint": "^5.20.1",
     "tslint-config-airbnb": "^5.11.2",
-    "typescript": "^3.4.5",
-    "@nxapi/nxapi": "^0.0.7"
+    "typescript": "^3.4.5"
   }
 }
