@@ -1,0 +1,30 @@
+{
+  "name": "@nxapi/nxapi-dsl-joi",
+  "version": "0.0.3",
+  "description": "@nxapi/nxapi-dsl-joi",
+  "scripts": {
+    "build": "npm run build-ts && npm run tslint",
+    "watch-ts": "rm -rf ./dist && tsc -w",
+    "build-ts": "rm -rf ./dist && tsc -p tsconfig.build.json",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "tslint:fix": "tslint --fix -c tslint.json -p tsconfig.json"
+  },
+  "author": "pengxiang",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "pre-commit": [
+    "tslint"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^9.4.6",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.4.5",
+    "@nxapi/nxapi": "^0.0.7"
+  }
+}
