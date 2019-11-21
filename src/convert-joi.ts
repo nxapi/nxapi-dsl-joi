@@ -26,7 +26,7 @@ const dealReqDto = (reqDto: DSLReqDto) => {
     return joiStr;
   }
   //下面逻辑为自定义对象处理逻辑
-  if (!reqDto.fields) return '{}';
+  if (!reqDto.fields) return 'Joi.object({})';
   let objJoiStr = 'Joi.object({\n';
   reqDto.fields.forEach((field: DSLField) => {
     const joiType = getJoiType(field.type);
