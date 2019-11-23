@@ -62,9 +62,9 @@ const dealReqDto = (reqDto: DSLReqDto) => {
 };
 
 const dealJoiParams = (funName: string, val: any) => {
-  let params;
-  if (typeof val === 'string') params = `('${val}')`;
-  else params = `(${val})`;
+  const params = `(${val})`;
+  // if (typeof val === 'string') params = `('${val}')`;
+  // else params = `(${val})`;
   let retVal = '';
   if (funName === 'required') retVal += `()`;
   else retVal += params;

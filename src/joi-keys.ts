@@ -69,10 +69,34 @@ export default class JoiKeys {
     'positive',
     'negative',
     'port',
-    //objext
+    //object
     'keys',
     'append',
-    //以后补充
+    'min',
+    'max',
+    'unknown',
+    'length',
+    //string
+    'min',
+    'max',
+    'truncate',
+    'creditCard',
+    'length',
+    'regex',
+    'alphanum',
+    'token',
+    'email',
+    'ip',
+    'uri',
+    'guid',
+    'hex',
+    'base64',
+    'dataUri',
+    'hostname',
+    'lowercase',
+    'uppercase',
+    'trim',
+    'isoDate',
   ];
 
   public static in(key: string) {
