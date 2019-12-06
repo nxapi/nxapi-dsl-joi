@@ -35,7 +35,7 @@ const dealReqDto = (reqDto: DSLReqDto) => {
         const childJoiStr = dealReqDto(field.typeDeclare);
         objJoiStr += `  ${field.name}: Joi.array().items(${childJoiStr})`;
       } else {
-        objJoiStr += `  ${field.name}: Joi.array().items(Joi.${joiType}())`;
+        objJoiStr += `  ${field.name}: Joi.array().items(Joi.${joiType}()${extractField(field.extraInfo)})`;
       }
     } else {
       if (joiType === 'object') {
@@ -45,13 +45,7 @@ const dealReqDto = (reqDto: DSLReqDto) => {
         objJoiStr += `  ${field.name}: Joi.${joiType}()`;
       }
     }
-
-    for (const key in field) {
-      if (key === 'name' || key === 'type') continue;
-      if (!JoiKeys.in(key)) continue;
-      objJoiStr += `.${key}`;
-      objJoiStr += dealJoiParams(key, field[key]);
-    }
+    objJoiStr += extractField(field);
     objJoiStr += ',\n';
   });
   objJoiStr += '})';
@@ -59,6 +53,18 @@ const dealReqDto = (reqDto: DSLReqDto) => {
   else joiStr = objJoiStr;
 
   return joiStr;
+};
+
+const extractField = (field: DSLField) => {
+  let objJoiStr = '';
+  if (!field) return objJoiStr;
+  for (const key in field) {
+    if (key === 'name' || key === 'type') continue;
+    if (!JoiKeys.in(key)) continue;
+    objJoiStr += `.${key}`;
+    objJoiStr += dealJoiParams(key, field[key]);
+  }
+  return objJoiStr;
 };
 
 const dealJoiParams = (funName: string, val: any) => {
